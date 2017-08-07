@@ -1,0 +1,2 @@
+jar.internal.DefaultHelloWorld
+jar.script.HelloWorldScriptService
