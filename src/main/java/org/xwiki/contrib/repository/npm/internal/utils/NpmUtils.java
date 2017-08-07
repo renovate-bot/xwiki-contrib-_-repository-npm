@@ -19,6 +19,7 @@
  */
 package org.xwiki.contrib.repository.npm.internal.utils;
 
+import org.xwiki.contrib.repository.npm.internal.NpmParameters;
 import org.xwiki.extension.ExtensionId;
 import org.xwiki.extension.ExtensionNotFoundException;
 import org.xwiki.extension.ResolveException;
@@ -29,10 +30,6 @@ import org.xwiki.extension.ResolveException;
  */
 final public class NpmUtils
 {
-    private NpmUtils()
-    {
-    }
-
     /**
      * This method assumes that extensionId is simply the npm package name
      * @param extensionId -
@@ -43,7 +40,11 @@ final public class NpmUtils
     {
         String[] parts = extensionId.getId().split(":");
         if (parts.length > 1) {
-            throw new ExtensionNotFoundException("That's not id of npm package: " + extensionId);
+            if (NpmParameters.DEFAULT_GROUPID.equals(parts[0])) {
+                return parts[1];
+            } else {
+                throw new ExtensionNotFoundException("That's not id of python package: " + extensionId);
+            }
         } else {
             return extensionId.getId();
         }

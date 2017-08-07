@@ -39,6 +39,7 @@ import org.xwiki.extension.Extension;
 import org.xwiki.extension.ExtensionDependency;
 import org.xwiki.extension.ExtensionId;
 import org.xwiki.extension.ExtensionLicenseManager;
+import org.xwiki.extension.ExtensionNotFoundException;
 import org.xwiki.extension.ResolveException;
 import org.xwiki.extension.internal.ExtensionFactory;
 import org.xwiki.extension.repository.AbstractExtensionRepository;
@@ -92,18 +93,16 @@ public class NpmExtensionRepository extends AbstractExtensionRepository
     {
         String packageName = NpmUtils.getPackageName(extensionId);
         String version = NpmUtils.getVersion(extensionId);
-        resolveNpmExtension(packageName, version);
-        return null;
+        return resolveNpmExtension(packageName, version);
     }
 
-    public NpmPackageInfoJSONDto resolveNpmExtension(String packageName, String version) throws ResolveException
+    public NpmExtension resolveNpmExtension(String packageName, String version) throws ResolveException
     {
-        // TODO: 07.08.2017 change return type to NpmExtension
         try {
             NpmPackageInfoJSONDto npmPackageInfo = getNpmPackageInfo(packageName, version);
-            return npmPackageInfo;
+            return NpmExtension.constructFrom(npmPackageInfo, this, licenseManager, httpClientFactory);
         } catch (HttpException e) {
-            throw new ResolveException("Failed to resolve package [" + packageName + "] version: [" + version + "]", e);
+            throw new ExtensionNotFoundException("Failed to resolve package [" + packageName + "] version: [" + version + "]", e);
         }
     }
 
