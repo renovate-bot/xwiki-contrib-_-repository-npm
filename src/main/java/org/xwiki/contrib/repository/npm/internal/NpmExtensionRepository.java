@@ -19,12 +19,21 @@
  */
 package org.xwiki.contrib.repository.npm.internal;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import org.apache.http.HttpException;
 import org.apache.http.client.protocol.HttpClientContext;
 import org.slf4j.Logger;
 import org.xwiki.component.annotation.Component;
+import org.xwiki.contrib.repository.npm.internal.dto.NpmPackageInfoJSONDto;
+import org.xwiki.contrib.repository.npm.internal.utils.NpmHttpUtils;
+import org.xwiki.contrib.repository.npm.internal.utils.NpmUtils;
 import org.xwiki.environment.Environment;
 import org.xwiki.extension.Extension;
 import org.xwiki.extension.ExtensionDependency;
@@ -71,13 +80,32 @@ public class NpmExtensionRepository extends AbstractExtensionRepository
 
     private HttpClientContext localContext;
 
+    public ExtensionRepository setUpRepository(ExtensionRepositoryDescriptor extensionRepositoryDescriptor)
+    {
+        setDescriptor(extensionRepositoryDescriptor);
+        this.localContext = HttpClientContext.create();
+        return this;
+    }
 
     @Override
     public Extension resolve(ExtensionId extensionId) throws ResolveException
     {
+        String packageName = NpmUtils.getPackageName(extensionId);
+        String version = NpmUtils.getVersion(extensionId);
+        resolveNpmExtension(packageName, version);
         return null;
     }
 
+    public NpmPackageInfoJSONDto resolveNpmExtension(String packageName, String version) throws ResolveException
+    {
+        // TODO: 07.08.2017 change return type to NpmExtension
+        try {
+            NpmPackageInfoJSONDto npmPackageInfo = getNpmPackageInfo(packageName, version);
+            return npmPackageInfo;
+        } catch (HttpException e) {
+            throw new ResolveException("Failed to resolve package [" + packageName + "] version: [" + version + "]", e);
+        }
+    }
 
     @Override
     public Extension resolve(ExtensionDependency extensionDependency) throws ResolveException
@@ -91,17 +119,29 @@ public class NpmExtensionRepository extends AbstractExtensionRepository
         return null;
     }
 
-
     @Override public IterableResult<Extension> search(String searchQuery, int offset, int hitsPerPage)
             throws SearchException
     {
         return null;
     }
 
-    public ExtensionRepository setUpRepository(ExtensionRepositoryDescriptor extensionRepositoryDescriptor)
+    public NpmPackageInfoJSONDto getNpmPackageInfo(String packageName, String version) throws HttpException
     {
-        setDescriptor(extensionRepositoryDescriptor);
-        this.localContext = HttpClientContext.create();
-        return this;
+        URI uri = null;
+        try {
+            uri = new URI(NpmParameters.PACKAGE_VERSION_INFO_JSON
+                    .replace("{package_name}", packageName)
+                    .replace("{version}", version));
+        } catch (URISyntaxException e) {
+            new HttpException("Problem with created URI for resolving package info", e);
+        }
+
+        InputStream inputStream = NpmHttpUtils.performGet(uri, httpClientFactory, localContext);
+
+        try {
+            return objectMapper.readValue(inputStream, NpmPackageInfoJSONDto.class);
+        } catch (IOException e) {
+            throw new HttpException(String.format("Failed to parse response body of request [%s]", uri), e);
+        }
     }
 }

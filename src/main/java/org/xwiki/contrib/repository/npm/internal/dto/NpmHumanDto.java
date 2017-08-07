@@ -17,9 +17,41 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.xwiki.contrib.repository.npm.internal;
+package org.xwiki.contrib.repository.npm.internal.dto;
 
-public interface PypiParameters
+public class NpmHumanDto
 {
-    String API_URL = "https://registry.npmjs.org/";
+    private String name;
+    private String email;
+    private String url;
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public String getEmail()
+    {
+        return email;
+    }
+
+    public void setEmail(String email)
+    {
+        this.email = email;
+    }
+
+    public String getUrl()
+    {
+        return url;
+    }
+
+    public void setUrl(String url)
+    {
+        this.url = url;
+    }
 }

@@ -88,7 +88,7 @@ public class ExtensionPostInstallmentConfigListener extends AbstractEventListene
     private ExtensionRepositoryDescriptor obtainPypiRepositoryDescriptor()
     {
         try {
-            return new DefaultExtensionRepositoryDescriptor("NPM", "npm", new URI(PypiParameters.API_URL));
+            return new DefaultExtensionRepositoryDescriptor("NPM", "npm", new URI(NpmParameters.API_URL));
         } catch (URISyntaxException e) {
             // Should never happen
             return null;
