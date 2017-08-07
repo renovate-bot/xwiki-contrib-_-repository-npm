@@ -1,2 +1,2 @@
-jar.internal.DefaultHelloWorld
-jar.script.HelloWorldScriptService
+org.xwiki.contrib.repository.npm.internal.ExtensionPostInstallmentConfigListener
+org.xwiki.contrib.repository.npm.internal.NpmExtensionRepository

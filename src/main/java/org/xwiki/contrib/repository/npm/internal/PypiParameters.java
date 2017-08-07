@@ -17,30 +17,9 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package jar.script;
+package org.xwiki.contrib.repository.npm.internal;
 
-import org.xwiki.component.annotation.Component;
-import org.xwiki.script.service.ScriptService;
-
-import jar.HelloWorld;
-
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.inject.Singleton;
-
-/**
- * Make the HelloWorld API available to scripting.
- */
-@Component
-@Named("hello")
-@Singleton
-public class HelloWorldScriptService implements ScriptService
+public interface PypiParameters
 {
-    @Inject
-    private HelloWorld helloWorld;
-
-    public String greet()
-    {
-        return this.helloWorld.sayHello();
-    }
+    String API_URL = "https://registry.npmjs.org/";
 }
