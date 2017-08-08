@@ -28,12 +28,12 @@ public class NpmVersionRange implements VersionRange
 {
     private final Range range;
 
-    private final String value;
+    private final String raweVersionRange;
 
-    public NpmVersionRange(String versionRange)
+    public NpmVersionRange(String rawVersionRange)
     {
-        value = versionRange;
-        range = new Range(versionRange, false);
+        this.raweVersionRange = rawVersionRange;
+        range = new Range(rawVersionRange, false);
     }
 
     @Override public boolean containsVersion(Version version)
@@ -43,12 +43,17 @@ public class NpmVersionRange implements VersionRange
 
     @Override public String getValue()
     {
-        return value;
+        return raweVersionRange;
     }
 
     @Override public boolean isCompatible(VersionRange versionRange)
     {
         return true;
         // TODO: 08.08.2017 to implement in future
+    }
+
+    @Override public String toString()
+    {
+        return raweVersionRange;
     }
 }

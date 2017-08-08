@@ -63,4 +63,9 @@ public class NpmVersion implements Version
     {
         return -compareTo(npmVersion);
     }
+
+    @Override public String toString()
+    {
+        return rawVersion;
+    }
 }

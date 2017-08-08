@@ -74,4 +74,9 @@ public class NpmVersionConstraint implements VersionConstraint
         return this;
         // TODO: 08.08.2017 to implement in future
     }
+
+    @Override public String toString()
+    {
+        return rawVersionConstraint;
+    }
 }
