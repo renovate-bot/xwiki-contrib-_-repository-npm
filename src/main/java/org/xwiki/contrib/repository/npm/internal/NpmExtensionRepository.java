@@ -104,7 +104,7 @@ public class NpmExtensionRepository extends AbstractExtensionRepository
     {
         try {
             NpmPackageInfoJSONDto npmPackageInfo = getNpmPackageInfo(packageName, version);
-            return NpmExtension.constructFrom(npmPackageInfo, this, licenseManager, httpClientFactory);
+            return NpmExtension.constructFrom(npmPackageInfo, this, licenseManager, httpClientFactory, environment);
         } catch (HttpException e) {
             throw new ExtensionNotFoundException(
                     "Failed to resolve package [" + packageName + "] version: [" + version + "]", e);

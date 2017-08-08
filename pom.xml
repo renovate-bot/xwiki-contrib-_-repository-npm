@@ -83,6 +83,11 @@
             <artifactId>npm-semver</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.rauschig</groupId>
+            <artifactId>jarchivelib</artifactId>
+            <version>0.7.1</version>
+        </dependency>
 
         <!-- Testing dependencies -->
         <dependency>

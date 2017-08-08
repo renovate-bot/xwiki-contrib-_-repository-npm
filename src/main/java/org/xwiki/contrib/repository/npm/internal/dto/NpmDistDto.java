@@ -19,6 +19,11 @@
  */
 package org.xwiki.contrib.repository.npm.internal.dto;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import org.xwiki.extension.ResolveException;
+
 public class NpmDistDto
 {
     private String shasum;
@@ -42,5 +47,14 @@ public class NpmDistDto
     public void setTarball(String tarball)
     {
         this.tarball = tarball;
+    }
+
+    public URI getURI() throws ResolveException
+    {
+        try {
+            return new URI(tarball);
+        } catch (URISyntaxException e) {
+            throw new ResolveException("Badly formed URI for downloading package: " + tarball);
+        }
     }
 }

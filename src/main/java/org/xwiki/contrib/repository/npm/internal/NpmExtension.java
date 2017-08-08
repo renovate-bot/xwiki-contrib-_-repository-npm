@@ -25,6 +25,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.xwiki.contrib.repository.npm.internal.dto.NpmDependencyDto;
 import org.xwiki.contrib.repository.npm.internal.dto.NpmPackageInfoJSONDto;
 import org.xwiki.contrib.repository.npm.internal.version.NpmVersionConstraint;
+import org.xwiki.environment.Environment;
 import org.xwiki.extension.AbstractRemoteExtension;
 import org.xwiki.extension.DefaultExtensionDependency;
 import org.xwiki.extension.ExtensionId;
@@ -53,7 +54,7 @@ public class NpmExtension extends AbstractRemoteExtension
 
     public static NpmExtension constructFrom(NpmPackageInfoJSONDto npmPackageInfo,
             NpmExtensionRepository npmExtensionRepository, ExtensionLicenseManager licenseManager,
-            HttpClientFactory httpClientFactory) throws ResolveException
+            HttpClientFactory httpClientFactory, Environment environment) throws ResolveException
     {
         String packageName = npmPackageInfo.getName();
         String version = npmPackageInfo.getVersion();
@@ -70,6 +71,7 @@ public class NpmExtension extends AbstractRemoteExtension
         npmExtension.addRepository(npmExtensionRepository.getDescriptor());
         npmExtension.setRecommended(false);
 
+        npmExtension.setFile(new NpmExtensionFile(npmPackageInfo.getDist().getURI(), httpClientFactory, environment));
         //setFile TODO: 07.08.2017
 
         npmExtension.addDependencies(npmPackageInfo);
