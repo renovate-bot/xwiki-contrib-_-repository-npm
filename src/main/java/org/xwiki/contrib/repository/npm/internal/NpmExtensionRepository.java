@@ -23,6 +23,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Optional;
+import java.util.stream.StreamSupport;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -34,6 +36,7 @@ import org.xwiki.component.annotation.Component;
 import org.xwiki.contrib.repository.npm.internal.dto.NpmPackageInfoJSONDto;
 import org.xwiki.contrib.repository.npm.internal.utils.NpmHttpUtils;
 import org.xwiki.contrib.repository.npm.internal.utils.NpmUtils;
+import org.xwiki.contrib.repository.npm.internal.version.NpmVersion;
 import org.xwiki.environment.Environment;
 import org.xwiki.extension.Extension;
 import org.xwiki.extension.ExtensionDependency;
@@ -50,6 +53,7 @@ import org.xwiki.extension.repository.result.IterableResult;
 import org.xwiki.extension.repository.search.SearchException;
 import org.xwiki.extension.repository.search.Searchable;
 import org.xwiki.extension.version.Version;
+import org.xwiki.extension.version.VersionConstraint;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -102,19 +106,37 @@ public class NpmExtensionRepository extends AbstractExtensionRepository
             NpmPackageInfoJSONDto npmPackageInfo = getNpmPackageInfo(packageName, version);
             return NpmExtension.constructFrom(npmPackageInfo, this, licenseManager, httpClientFactory);
         } catch (HttpException e) {
-            throw new ExtensionNotFoundException("Failed to resolve package [" + packageName + "] version: [" + version + "]", e);
+            throw new ExtensionNotFoundException(
+                    "Failed to resolve package [" + packageName + "] version: [" + version + "]", e);
         }
     }
 
     @Override
     public Extension resolve(ExtensionDependency extensionDependency) throws ResolveException
     {
-        return null;
+        String packageName = NpmUtils.getPackageName(extensionDependency.getId());
+        IterableResult<Version> versions = resolveVersions(packageName, 0, -1);
+        VersionConstraint versionConstraint = extensionDependency.getVersionConstraint();
+        Optional<Version> validVersion = getNewestCompatibleVersion(versionConstraint, versions);
+        Version version = validVersion.orElseThrow(
+                () -> new ExtensionNotFoundException("Could not resolve dependency: [" + packageName + "]"));
+        return resolve(new ExtensionId(NpmParameters.DEFAULT_GROUPID + ":" + packageName, version));
+    }
+
+    protected Optional<Version> getNewestCompatibleVersion(VersionConstraint versionConstraint,
+            IterableResult<Version> versions)
+    {
+        return StreamSupport.stream(versions.spliterator(), false)
+                .sorted((v1, v2) -> {
+                    return new NpmVersion(v1).isNewer(new NpmVersion(v2));
+                })
+                .filter(version -> versionConstraint.isCompatible(version)).findFirst();
     }
 
     @Override
     public IterableResult<Version> resolveVersions(String packageName, int offset, int nb) throws ResolveException
     {
+        //use RepositoryUtils
         return null;
     }
 

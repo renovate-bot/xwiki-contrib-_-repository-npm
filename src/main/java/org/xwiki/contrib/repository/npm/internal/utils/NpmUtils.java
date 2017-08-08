@@ -30,15 +30,9 @@ import org.xwiki.extension.ResolveException;
  */
 final public class NpmUtils
 {
-    /**
-     * This method assumes that extensionId is simply the npm package name
-     * @param extensionId -
-     * @return -
-     * @throws ResolveException -
-     */
-    public static String getPackageName(ExtensionId extensionId) throws ResolveException
+    public static String getPackageName(String extensionId) throws ResolveException
     {
-        String[] parts = extensionId.getId().split(":");
+        String[] parts = extensionId.split(":");
         if (parts.length > 1) {
             if (NpmParameters.DEFAULT_GROUPID.equals(parts[0])) {
                 return parts[1];
@@ -46,8 +40,21 @@ final public class NpmUtils
                 throw new ExtensionNotFoundException("That's not id of python package: " + extensionId);
             }
         } else {
-            return extensionId.getId();
+            return extensionId;
         }
+    }
+
+    /**
+     * This method assumes that extensionId is simply the npm package name or prefixed with: "org.webjar:"
+     * e.g. "org.webjar:jquery"
+     *
+     * @param extensionId -
+     * @return -
+     * @throws ResolveException -
+     */
+    public static String getPackageName(ExtensionId extensionId) throws ResolveException
+    {
+        return getPackageName(extensionId.getId());
     }
 
     public static String getVersion(ExtensionId extensionId)
