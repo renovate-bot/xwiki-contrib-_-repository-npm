@@ -71,9 +71,9 @@ public class NpmExtension extends AbstractRemoteExtension
         npmExtension.addRepository(npmExtensionRepository.getDescriptor());
         npmExtension.setRecommended(false);
 
-        npmExtension.setFile(new NpmExtensionFile(npmPackageInfo.getDist().getURI(), httpClientFactory, environment));
-        //setFile TODO: 07.08.2017
-
+        npmExtension.setFile(
+                new NpmExtensionFile(packageName, version, npmPackageInfo.getDist().getURI(), httpClientFactory,
+                        environment));
         npmExtension.addDependencies(npmPackageInfo);
 
         return npmExtension;
