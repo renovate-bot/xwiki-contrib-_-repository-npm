@@ -17,13 +17,10 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.xwiki.contrib.repository.npm.internal.dto;
+package org.xwiki.contrib.repository.npm.internal.dto.packageinfo;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Spliterator;
-import java.util.Spliterators;
-import java.util.stream.StreamSupport;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -188,11 +185,14 @@ public class NpmPackageInfoJSONDto
     public List<NpmDependencyDto> getDependencies()
     {
         LinkedList<NpmDependencyDto> dependencies = new LinkedList<>();
-
-        this.dependencies.fields().forEachRemaining(
-                depEntry -> dependencies.add(new NpmDependencyDto(depEntry.getKey(), depEntry.getValue().textValue()))
-        );
-
+        if(this.dependencies != null) {
+            this.dependencies.fields().forEachRemaining(
+                    depEntry -> dependencies
+                            .add(new NpmDependencyDto(depEntry.getKey(), depEntry.getValue().textValue()))
+            );
+        }else {
+            dependencies.size(); //todelete
+        }
         return dependencies;
     }
 

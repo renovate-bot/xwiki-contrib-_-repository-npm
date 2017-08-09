@@ -17,40 +17,22 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.xwiki.contrib.repository.npm.internal.dto;
+package org.xwiki.contrib.repository.npm.internal.dto.packageinfo;
 
-public class NpmDependencyDto
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class NpmBugsDto
 {
-    private String name;
-    private String version;
+    private String url;
 
-    public NpmDependencyDto()
+    public String getUrl()
     {
+        return url;
     }
 
-    public NpmDependencyDto(String name, String version)
+    public void setUrl(String url)
     {
-        this.name = name;
-        this.version = version;
-    }
-
-    public String getName()
-    {
-        return name;
-    }
-
-    public void setName(String name)
-    {
-        this.name = name;
-    }
-
-    public String getVersion()
-    {
-        return version;
-    }
-
-    public void setVersion(String version)
-    {
-        this.version = version;
+        this.url = url;
     }
 }

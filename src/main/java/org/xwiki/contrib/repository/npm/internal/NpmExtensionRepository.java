@@ -23,17 +23,21 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.StreamSupport;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.http.HttpException;
 import org.apache.http.client.protocol.HttpClientContext;
+import org.apache.http.message.BasicHeader;
 import org.slf4j.Logger;
 import org.xwiki.component.annotation.Component;
-import org.xwiki.contrib.repository.npm.internal.dto.NpmPackageInfoJSONDto;
+import org.xwiki.contrib.repository.npm.internal.dto.packageinfo.NpmPackageInfoJSONDto;
+import org.xwiki.contrib.repository.npm.internal.dto.versions.NpmAbrevMetaDataJSONDto;
 import org.xwiki.contrib.repository.npm.internal.utils.NpmHttpUtils;
 import org.xwiki.contrib.repository.npm.internal.utils.NpmUtils;
 import org.xwiki.contrib.repository.npm.internal.version.NpmVersion;
@@ -49,6 +53,7 @@ import org.xwiki.extension.repository.AbstractExtensionRepository;
 import org.xwiki.extension.repository.ExtensionRepository;
 import org.xwiki.extension.repository.ExtensionRepositoryDescriptor;
 import org.xwiki.extension.repository.http.internal.HttpClientFactory;
+import org.xwiki.extension.repository.internal.RepositoryUtils;
 import org.xwiki.extension.repository.result.IterableResult;
 import org.xwiki.extension.repository.search.SearchException;
 import org.xwiki.extension.repository.search.Searchable;
@@ -136,14 +141,40 @@ public class NpmExtensionRepository extends AbstractExtensionRepository
     @Override
     public IterableResult<Version> resolveVersions(String packageName, int offset, int nb) throws ResolveException
     {
-        //use RepositoryUtils
-        return null;
+        try {
+            NpmAbrevMetaDataJSONDto abreviatedMetadata = getAbreviatedMetadata(packageName);
+            List<Version> versions = abreviatedMetadata.getVersions();
+            return RepositoryUtils.getIterableResult(offset, nb, versions);
+        } catch (HttpException e) {
+            throw new ResolveException("Could not resolve versions of package: [" + packageName + "]");
+        }
     }
 
     @Override public IterableResult<Extension> search(String searchQuery, int offset, int hitsPerPage)
             throws SearchException
     {
         return null;
+    }
+
+    private NpmAbrevMetaDataJSONDto getAbreviatedMetadata(String packageName) throws HttpException
+    {
+        URI uri = null;
+        try {
+            uri = new URI(NpmParameters.PACKAGE_INFO_JSON
+                    .replace("{package_name}", packageName));
+        } catch (URISyntaxException e) {
+            new HttpException("Problem with created URI for resolving package info", e);
+        }
+
+        BasicHeader acceptHeader = new BasicHeader("Accept", "application/vnd.npm.install-v1+json");
+        InputStream inputStream =
+                NpmHttpUtils.performGet(uri, httpClientFactory, localContext, ArrayUtils.toArray(acceptHeader));
+
+        try {
+            return objectMapper.readValue(inputStream, NpmAbrevMetaDataJSONDto.class);
+        } catch (IOException e) {
+            throw new HttpException(String.format("Failed to parse response body of request [%s]", uri), e);
+        }
     }
 
     public NpmPackageInfoJSONDto getNpmPackageInfo(String packageName, String version) throws HttpException

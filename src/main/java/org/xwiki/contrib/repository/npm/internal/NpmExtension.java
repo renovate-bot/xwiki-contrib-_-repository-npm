@@ -22,8 +22,8 @@ package org.xwiki.contrib.repository.npm.internal;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
-import org.xwiki.contrib.repository.npm.internal.dto.NpmDependencyDto;
-import org.xwiki.contrib.repository.npm.internal.dto.NpmPackageInfoJSONDto;
+import org.xwiki.contrib.repository.npm.internal.dto.packageinfo.NpmDependencyDto;
+import org.xwiki.contrib.repository.npm.internal.dto.packageinfo.NpmPackageInfoJSONDto;
 import org.xwiki.contrib.repository.npm.internal.version.NpmVersionConstraint;
 import org.xwiki.environment.Environment;
 import org.xwiki.extension.AbstractRemoteExtension;
@@ -34,11 +34,6 @@ import org.xwiki.extension.ExtensionLicenseManager;
 import org.xwiki.extension.ResolveException;
 import org.xwiki.extension.repository.ExtensionRepository;
 import org.xwiki.extension.repository.http.internal.HttpClientFactory;
-import org.xwiki.extension.version.internal.DefaultVersionConstraint;
-import org.xwiki.extension.version.internal.DefaultVersionRange;
-
-import com.github.yuchi.semver.Range;
-import com.github.yuchi.semver.Version;
 
 /**
  * @version $Id: 81a55f3a16b33bcf2696d0cac493b25c946b6ee4 $

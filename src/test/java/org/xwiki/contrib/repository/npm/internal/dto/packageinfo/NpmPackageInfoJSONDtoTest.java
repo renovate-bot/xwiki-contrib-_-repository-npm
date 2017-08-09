@@ -1,9 +1,8 @@
-package org.xwiki.contrib.repository.npm.internal.dto;
-
-import java.util.Optional;
+package org.xwiki.contrib.repository.npm.internal.dto.packageinfo;
 
 import org.junit.Test;
 import org.xwiki.contrib.repository.npm.internal.TestUtils;
+import org.xwiki.contrib.repository.npm.internal.dto.packageinfo.NpmPackageInfoJSONDto;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

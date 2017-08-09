@@ -17,14 +17,43 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.xwiki.contrib.repository.npm.internal;
+package org.xwiki.contrib.repository.npm.internal.dto.packageinfo;
 
-public interface NpmParameters
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class NpmDependencyDto
 {
-    String API_URL = "https://registry.npmjs.org/";
-    String PACKAGE_VERSION_INFO_JSON = "http://registry.npmjs.org/{package_name}/{version}";
-    String PACKAGE_INFO_JSON = "http://registry.npmjs.org/{package_name}";
+    private String name;
+    private String version;
 
-    String DEFAULT_GROUPID = "org.webjar";
-    String PACKAGE_TYPE = "webjar";
+    public NpmDependencyDto()
+    {
+    }
+
+    public NpmDependencyDto(String name, String version)
+    {
+        this.name = name;
+        this.version = version;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public String getVersion()
+    {
+        return version;
+    }
+
+    public void setVersion(String version)
+    {
+        this.version = version;
+    }
 }

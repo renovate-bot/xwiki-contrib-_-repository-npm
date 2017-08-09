@@ -23,6 +23,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.http.Header;
 import org.apache.http.HttpException;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -40,7 +42,15 @@ public class NpmHttpUtils
     public static InputStream performGet(URI uri, HttpClientFactory httpClientFactory, HttpContext localContext)
             throws HttpException
     {
+        return performGet(uri, httpClientFactory, localContext, ArrayUtils.toArray());
+    }
+
+    public static InputStream performGet(URI uri, HttpClientFactory httpClientFactory, HttpContext localContext,
+            Header[] headers)
+            throws HttpException
+    {
         HttpGet getMethod = new HttpGet(uri);
+        getMethod.setHeaders(headers);
         CloseableHttpClient httpClient = httpClientFactory.createClient(null, null);
         CloseableHttpResponse response;
         try {
