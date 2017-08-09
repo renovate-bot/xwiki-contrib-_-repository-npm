@@ -95,16 +95,6 @@ public class NpmExtensionFile implements ExtensionFile
         return webJar;
     }
 
-    private File prepareDirectoryForWebJarStructure()
-    {
-        File temporaryDirectory = environment.getTemporaryDirectory();
-        File webJarDirectory =
-                new File(environment.getTemporaryDirectory().getAbsolutePath() + File.separator
-                        + generateUniqueFileName());
-        webJarDirectory.mkdirs();
-        return webJarDirectory;
-    }
-
     private File downloadJSPackage() throws IOException
     {
         try {
@@ -134,6 +124,16 @@ public class NpmExtensionFile implements ExtensionFile
         return destDirectory;
     }
 
+    private File prepareDirectoryForWebJarStructure()
+    {
+        File temporaryDirectory = environment.getTemporaryDirectory();
+        File webJarDirectory =
+                new File(environment.getTemporaryDirectory().getAbsolutePath() + File.separator
+                        + generateUniqueFileName());
+        webJarDirectory.mkdirs();
+        return webJarDirectory;
+    }
+
     private void prepareWebJarDirectoryStructure(File unPackedPackage, File webJarDirectory) throws IOException
     {
         File jsLibrariesDirectory =
@@ -145,9 +145,9 @@ public class NpmExtensionFile implements ExtensionFile
 
     private void copyJsLibraries(File unPackedPackage, File jsLibrariesDirectory) throws IOException
     {
-        // TODO: 08.08.2017 na razie pakuj tak jak wszystkie - zobacz czy dziala i potem ewentualnie nad tym pracuj
         unPackedPackage = new File(unPackedPackage.getAbsolutePath() + File.separator + "package");
         jsLibrariesDirectory.delete(); // this is required by FileUtils.moveDirectory
+        // TODO: 08.08.2017 perhaps there should be some selection of copied js libraries
         FileUtils.moveDirectory(unPackedPackage, jsLibrariesDirectory);
     }
 

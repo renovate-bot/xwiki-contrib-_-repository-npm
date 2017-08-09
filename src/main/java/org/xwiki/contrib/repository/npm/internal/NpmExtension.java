@@ -24,6 +24,8 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.xwiki.contrib.repository.npm.internal.dto.packageinfo.NpmDependencyDto;
 import org.xwiki.contrib.repository.npm.internal.dto.packageinfo.NpmPackageInfoJSONDto;
+import org.xwiki.contrib.repository.npm.internal.dto.search.NpmSearchPackageDto;
+import org.xwiki.contrib.repository.npm.internal.dto.search.NpmSearchResultDto;
 import org.xwiki.contrib.repository.npm.internal.version.NpmVersionConstraint;
 import org.xwiki.environment.Environment;
 import org.xwiki.extension.AbstractRemoteExtension;
@@ -98,5 +100,24 @@ public class NpmExtension extends AbstractRemoteExtension
                 addLicense(new ExtensionLicense(licenseName, content));
             }
         }
+    }
+
+    public static NpmExtension constructFrom(NpmSearchPackageDto npmSearchPackageDto,
+            NpmExtensionRepository npmExtensionRepository)
+    {
+        String packageName = npmSearchPackageDto.getName();
+        String version = npmSearchPackageDto.getVersion();
+        ExtensionId extensionId = new ExtensionId(NpmParameters.DEFAULT_GROUPID + ":" + packageName, version);
+
+        NpmExtension npmExtension = new NpmExtension(npmExtensionRepository, extensionId, NpmParameters.PACKAGE_TYPE);
+
+        //set metadata
+        npmExtension.setName(npmSearchPackageDto.getName());
+        npmExtension.setDescription(npmSearchPackageDto.getDescription());
+        npmExtension.setSummary(StringUtils.substring(npmSearchPackageDto.getDescription(), 0, 200));
+        npmExtension.setWebsite(npmSearchPackageDto.getLinks().getHomepage());
+        npmExtension.addRepository(npmExtensionRepository.getDescriptor());
+        npmExtension.setRecommended(false);
+        return npmExtension;
     }
 }

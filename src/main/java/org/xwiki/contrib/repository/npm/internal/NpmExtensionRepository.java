@@ -25,6 +25,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 import javax.inject.Inject;
@@ -37,6 +38,7 @@ import org.apache.http.message.BasicHeader;
 import org.slf4j.Logger;
 import org.xwiki.component.annotation.Component;
 import org.xwiki.contrib.repository.npm.internal.dto.packageinfo.NpmPackageInfoJSONDto;
+import org.xwiki.contrib.repository.npm.internal.dto.search.NpmSearchJSONDto;
 import org.xwiki.contrib.repository.npm.internal.dto.versions.NpmAbrevMetaDataJSONDto;
 import org.xwiki.contrib.repository.npm.internal.utils.NpmHttpUtils;
 import org.xwiki.contrib.repository.npm.internal.utils.NpmUtils;
@@ -54,6 +56,7 @@ import org.xwiki.extension.repository.ExtensionRepository;
 import org.xwiki.extension.repository.ExtensionRepositoryDescriptor;
 import org.xwiki.extension.repository.http.internal.HttpClientFactory;
 import org.xwiki.extension.repository.internal.RepositoryUtils;
+import org.xwiki.extension.repository.result.CollectionIterableResult;
 import org.xwiki.extension.repository.result.IterableResult;
 import org.xwiki.extension.repository.search.SearchException;
 import org.xwiki.extension.repository.search.Searchable;
@@ -68,16 +71,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 @Component(roles = NpmExtensionRepository.class)
 @Singleton
-public class NpmExtensionRepository extends AbstractExtensionRepository
-        implements Searchable
+public class NpmExtensionRepository extends AbstractExtensionRepository implements Searchable
 {
     private static ObjectMapper objectMapper = new ObjectMapper();
 
     @Inject
     private ExtensionLicenseManager licenseManager;
-
-    @Inject
-    private ExtensionFactory extensionFactory;
 
     @Inject
     private HttpClientFactory httpClientFactory;
@@ -146,34 +145,21 @@ public class NpmExtensionRepository extends AbstractExtensionRepository
             List<Version> versions = abreviatedMetadata.getVersions();
             return RepositoryUtils.getIterableResult(offset, nb, versions);
         } catch (HttpException e) {
-            throw new ResolveException("Could not resolve versions of package: [" + packageName + "]");
+            throw new ResolveException("Could not resolve versions of package: [" + packageName + "]", e);
         }
     }
 
     @Override public IterableResult<Extension> search(String searchQuery, int offset, int hitsPerPage)
             throws SearchException
     {
-        return null;
-    }
-
-    private NpmAbrevMetaDataJSONDto getAbreviatedMetadata(String packageName) throws HttpException
-    {
-        URI uri = null;
         try {
-            uri = new URI(NpmParameters.PACKAGE_INFO_JSON
-                    .replace("{package_name}", packageName));
-        } catch (URISyntaxException e) {
-            new HttpException("Problem with created URI for resolving package info", e);
-        }
-
-        BasicHeader acceptHeader = new BasicHeader("Accept", "application/vnd.npm.install-v1+json");
-        InputStream inputStream =
-                NpmHttpUtils.performGet(uri, httpClientFactory, localContext, ArrayUtils.toArray(acceptHeader));
-
-        try {
-            return objectMapper.readValue(inputStream, NpmAbrevMetaDataJSONDto.class);
-        } catch (IOException e) {
-            throw new HttpException(String.format("Failed to parse response body of request [%s]", uri), e);
+            NpmSearchJSONDto searchResults = getSearchResults(searchQuery, offset, hitsPerPage);
+            List<Extension> result = searchResults.getObjects().stream().map(npmSearchResultDto ->
+                    (Extension) NpmExtension.constructFrom(npmSearchResultDto.getPackageDto(), this))
+                    .collect(Collectors.toList());
+            return new CollectionIterableResult<Extension>(searchResults.getTotal(), offset, result);
+        } catch (HttpException e) {
+            throw new SearchException("Failure when performing search query: '" + searchQuery + "'", e);
         }
     }
 
@@ -192,6 +178,49 @@ public class NpmExtensionRepository extends AbstractExtensionRepository
 
         try {
             return objectMapper.readValue(inputStream, NpmPackageInfoJSONDto.class);
+        } catch (IOException e) {
+            throw new HttpException(String.format("Failed to parse response body of request [%s]", uri), e);
+        }
+    }
+
+    private NpmAbrevMetaDataJSONDto getAbreviatedMetadata(String packageName) throws HttpException
+    {
+        URI uri = null;
+        try {
+            uri = new URI(NpmParameters.PACKAGE_INFO_JSON.replace("{package_name}", packageName));
+        } catch (URISyntaxException e) {
+            new HttpException("Problem with created URI for resolving package info", e);
+        }
+
+        BasicHeader acceptHeader = new BasicHeader("Accept", "application/vnd.npm.install-v1+json");
+        InputStream inputStream =
+                NpmHttpUtils.performGet(uri, httpClientFactory, localContext, ArrayUtils.toArray(acceptHeader));
+
+        try {
+            return objectMapper.readValue(inputStream, NpmAbrevMetaDataJSONDto.class);
+        } catch (IOException e) {
+            throw new HttpException(String.format("Failed to parse response body of request [%s]", uri), e);
+        }
+    }
+
+    private NpmSearchJSONDto getSearchResults(String searchQuery, int offset, int hitsPerPage) throws HttpException
+    {
+        if (hitsPerPage < 0) {
+            hitsPerPage = 250;
+        }
+        URI uri = null;
+        try {
+            uri = new URI(NpmParameters.SEARCH_JSON
+                    .replace("{search_query}", searchQuery)
+                    .replace("{size}", "" + hitsPerPage)
+                    .replace("{from}", "" + offset));
+        } catch (URISyntaxException e) {
+            new HttpException("Problem with created URI when searching packages for query: '" + searchQuery + "'", e);
+        }
+        InputStream inputStream =
+                NpmHttpUtils.performGet(uri, httpClientFactory, localContext);
+        try {
+            return objectMapper.readValue(inputStream, NpmSearchJSONDto.class);
         } catch (IOException e) {
             throw new HttpException(String.format("Failed to parse response body of request [%s]", uri), e);
         }

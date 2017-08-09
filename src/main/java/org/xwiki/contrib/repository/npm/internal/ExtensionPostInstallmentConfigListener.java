@@ -50,7 +50,7 @@ import org.xwiki.observation.event.Event;
 public class ExtensionPostInstallmentConfigListener extends AbstractEventListener implements Initializable
 {
     @Inject
-    private NpmExtensionRepository pypiRepository;
+    private NpmExtensionRepository npmExtensionRepository;
 
     @Inject
     private ExtensionRepositoryManager extensionRepositoryManager;
@@ -70,10 +70,10 @@ public class ExtensionPostInstallmentConfigListener extends AbstractEventListene
     public void initialize()
     {
         logger.info(getName() + " registered");
-        addPypiRepository();
+        addNpmRepository();
     }
 
-    private void addPypiRepository()
+    private void addNpmRepository()
     {
         ExtensionRepository extensionRepository = createNpmRepository();
         extensionRepositoryManager.addRepository(extensionRepository);
@@ -82,10 +82,10 @@ public class ExtensionPostInstallmentConfigListener extends AbstractEventListene
 
     private ExtensionRepository createNpmRepository()
     {
-        return pypiRepository.setUpRepository(obtainPypiRepositoryDescriptor());
+        return npmExtensionRepository.setUpRepository(obtainNpmRepositoryDescriptor());
     }
 
-    private ExtensionRepositoryDescriptor obtainPypiRepositoryDescriptor()
+    private ExtensionRepositoryDescriptor obtainNpmRepositoryDescriptor()
     {
         try {
             return new DefaultExtensionRepositoryDescriptor("NPM", "npm", new URI(NpmParameters.API_URL));

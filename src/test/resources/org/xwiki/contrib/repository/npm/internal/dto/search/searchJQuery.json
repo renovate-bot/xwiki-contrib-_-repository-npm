@@ -1,0 +1,1014 @@
+{
+  "objects": [
+    {
+      "package": {
+        "name": "jquery",
+        "scope": "unscoped",
+        "version": "3.2.1",
+        "description": "JavaScript library for DOM operations",
+        "keywords": [
+          "jquery",
+          "javascript",
+          "browser",
+          "library"
+        ],
+        "date": "2017-03-20T19:02:13.508Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/jquery",
+          "homepage": "https://jquery.com",
+          "repository": "https://github.com/jquery/jquery",
+          "bugs": "https://github.com/jquery/jquery/issues"
+        },
+        "author": {
+          "name": "JS Foundation and other contributors",
+          "url": "https://github.com/jquery/jquery/blob/3.2.1/AUTHORS.txt"
+        },
+        "publisher": {
+          "username": "timmywil",
+          "email": "4timmywil@gmail.com"
+        },
+        "maintainers": [
+          {
+            "username": "dmethvin",
+            "email": "dave.methvin@gmail.com"
+          },
+          {
+            "username": "mgol",
+            "email": "m.goleb@gmail.com"
+          },
+          {
+            "username": "scott.gonzalez",
+            "email": "scott.gonzalez@gmail.com"
+          },
+          {
+            "username": "timmywil",
+            "email": "4timmywil@gmail.com"
+          }
+        ]
+      },
+      "score": {
+        "final": 0.9470859834176346,
+        "detail": {
+          "quality": 0.9658103855563313,
+          "popularity": 0.8790443400741055,
+          "maintenance": 0.9990781392137096
+        }
+      },
+      "searchScore": 100000.94
+    },
+    {
+      "package": {
+        "name": "jquery-ui",
+        "scope": "unscoped",
+        "version": "1.12.1",
+        "description": "A curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library.",
+        "date": "2016-09-14T16:34:20.374Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/jquery-ui",
+          "homepage": "http://jqueryui.com",
+          "repository": "https://github.com/jquery/jquery-ui",
+          "bugs": "https://bugs.jqueryui.com/"
+        },
+        "author": {
+          "name": "jQuery Foundation and other contributors",
+          "url": "https://github.com/jquery/jquery-ui/blob/1.12.1/AUTHORS.txt"
+        },
+        "publisher": {
+          "username": "scott.gonzalez",
+          "email": "scott.gonzalez@gmail.com"
+        },
+        "maintainers": [
+          {
+            "username": "scott.gonzalez",
+            "email": "scott.gonzalez@gmail.com"
+          },
+          {
+            "username": "jzaefferer",
+            "email": "joern.zaefferer@gmail.com"
+          },
+          {
+            "username": "devongovett",
+            "email": "devongovett@gmail.com"
+          }
+        ]
+      },
+      "score": {
+        "final": 0.8267911015940446,
+        "detail": {
+          "quality": 0.9556194994794561,
+          "popularity": 0.5433981148196166,
+          "maintenance": 0.999759747323834
+        }
+      },
+      "searchScore": 0.1808967
+    },
+    {
+      "package": {
+        "name": "cheerio",
+        "scope": "unscoped",
+        "version": "1.0.0-rc.2",
+        "description": "Tiny, fast, and elegant implementation of core jQuery designed specifically for the server",
+        "keywords": [
+          "htmlparser",
+          "jquery",
+          "selector",
+          "scraper",
+          "parser",
+          "html"
+        ],
+        "date": "2017-07-02T17:36:55.384Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/cheerio",
+          "homepage": "https://github.com/cheeriojs/cheerio#readme",
+          "repository": "https://github.com/cheeriojs/cheerio",
+          "bugs": "https://github.com/cheeriojs/cheerio/issues"
+        },
+        "author": {
+          "name": "Matt Mueller",
+          "email": "mattmuelle@gmail.com",
+          "url": "mat.io",
+          "username": "mattmueller"
+        },
+        "publisher": {
+          "username": "jugglinmike",
+          "email": "mike@mikepennisi.com"
+        },
+        "maintainers": [
+          {
+            "username": "mattmueller",
+            "email": "mattmuelle@gmail.com"
+          },
+          {
+            "username": "davidchambers",
+            "email": "dc@davidchambers.me"
+          },
+          {
+            "username": "jugglinmike",
+            "email": "mike@mikepennisi.com"
+          },
+          {
+            "username": "feedic",
+            "email": "me@feedic.com"
+          }
+        ]
+      },
+      "flags": {
+        "unstable": true
+      },
+      "score": {
+        "final": 0.78715836691715,
+        "detail": {
+          "quality": 0.9056946262388699,
+          "popularity": 0.8210724390393065,
+          "maintenance": 0.6516417868049483
+        }
+      },
+      "searchScore": 0.050283004
+    },
+    {
+      "package": {
+        "name": "object.assign",
+        "scope": "unscoped",
+        "version": "4.0.4",
+        "description": "ES6 spec-compliant Object.assign shim. From https://github.com/es-shims/es6-shim",
+        "keywords": [
+          "Object.assign",
+          "assign",
+          "ES6",
+          "extend",
+          "$.extend",
+          "jQuery",
+          "_.extend",
+          "Underscore",
+          "es-shim API",
+          "polyfill",
+          "shim"
+        ],
+        "date": "2016-07-04T19:45:29.439Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/object.assign",
+          "homepage": "https://github.com/ljharb/object.assign#readme",
+          "repository": "https://github.com/ljharb/object.assign",
+          "bugs": "https://github.com/ljharb/object.assign/issues"
+        },
+        "author": {
+          "name": "Jordan Harband"
+        },
+        "publisher": {
+          "username": "ljharb",
+          "email": "ljharb@gmail.com"
+        },
+        "maintainers": [
+          {
+            "username": "ljharb",
+            "email": "ljharb@gmail.com"
+          }
+        ]
+      },
+      "score": {
+        "final": 0.8307878253153775,
+        "detail": {
+          "quality": 0.9962493820179599,
+          "popularity": 0.5198501259558059,
+          "maintenance": 0.999901333215593
+        }
+      },
+      "searchScore": 0.026342314
+    },
+    {
+      "package": {
+        "name": "js-cookie",
+        "scope": "unscoped",
+        "version": "2.1.4",
+        "description": "A simple, lightweight JavaScript API for handling cookies",
+        "keywords": [
+          "jquery-plugin",
+          "cookie",
+          "cookies",
+          "browser",
+          "amd",
+          "commonjs",
+          "client",
+          "js-cookie",
+          "browserify"
+        ],
+        "date": "2017-04-03T11:38:34.442Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/js-cookie",
+          "homepage": "https://github.com/js-cookie/js-cookie#readme",
+          "repository": "https://github.com/js-cookie/js-cookie",
+          "bugs": "https://github.com/js-cookie/js-cookie/issues"
+        },
+        "author": {
+          "name": "Klaus Hartl"
+        },
+        "publisher": {
+          "username": "fagner",
+          "email": "gravatar@fagnermartins.com"
+        },
+        "maintainers": [
+          {
+            "username": "fagner",
+            "email": "gravatar@fagnermartins.com"
+          },
+          {
+            "username": "carhartl",
+            "email": "klaus.hartl@gmail.com"
+          }
+        ]
+      },
+      "score": {
+        "final": 0.7919383974351472,
+        "detail": {
+          "quality": 0.9413519595828435,
+          "popularity": 0.548006921972783,
+          "maintenance": 0.9078011053423432
+        }
+      },
+      "searchScore": 0.01668304
+    },
+    {
+      "package": {
+        "name": "node.extend",
+        "scope": "unscoped",
+        "version": "2.0.0",
+        "description": "A port of jQuery.extend that actually works on node.js",
+        "keywords": [
+          "extend",
+          "jQuery",
+          "jQuery extend",
+          "clone",
+          "copy",
+          "inherit"
+        ],
+        "date": "2017-04-19T07:13:24.630Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/node.extend",
+          "homepage": "https://github.com/dreamerslab/node.extend#readme",
+          "repository": "https://github.com/dreamerslab/node.extend",
+          "bugs": "https://github.com/dreamerslab/node.extend/issues"
+        },
+        "author": {
+          "name": "dreamerslab",
+          "email": "ben@dreamerslab.com",
+          "username": "dreamerslab"
+        },
+        "publisher": {
+          "username": "ljharb",
+          "email": "ljharb@gmail.com"
+        },
+        "maintainers": [
+          {
+            "username": "ljharb",
+            "email": "ljharb@gmail.com"
+          },
+          {
+            "username": "dreamerslab",
+            "email": "ben@dreamerslab.com"
+          }
+        ]
+      },
+      "score": {
+        "final": 0.7932956272859468,
+        "detail": {
+          "quality": 0.976596677610192,
+          "popularity": 0.42965918567221306,
+          "maintenance": 0.9998168829074707
+        }
+      },
+      "searchScore": 0.0153739145
+    },
+    {
+      "package": {
+        "name": "extend",
+        "scope": "unscoped",
+        "version": "3.0.1",
+        "description": "Port of jQuery.extend for node.js and the browser",
+        "keywords": [
+          "extend",
+          "clone",
+          "merge"
+        ],
+        "date": "2017-04-28T05:36:44.288Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/extend",
+          "homepage": "https://github.com/justmoon/node-extend#readme",
+          "repository": "https://github.com/justmoon/node-extend",
+          "bugs": "https://github.com/justmoon/node-extend/issues"
+        },
+        "author": {
+          "name": "Stefan Thomas",
+          "email": "justmoon@members.fsf.org",
+          "url": "http://www.justmoon.net",
+          "username": "justmoon"
+        },
+        "publisher": {
+          "username": "ljharb",
+          "email": "ljharb@gmail.com"
+        },
+        "maintainers": [
+          {
+            "username": "ljharb",
+            "email": "ljharb@gmail.com"
+          },
+          {
+            "username": "justmoon",
+            "email": "justmoon@members.fsf.org"
+          }
+        ]
+      },
+      "score": {
+        "final": 0.9002111656490505,
+        "detail": {
+          "quality": 0.976596677610192,
+          "popularity": 0.7351321524239374,
+          "maintenance": 0.9998168829074707
+        }
+      },
+      "searchScore": 0.01528902
+    },
+    {
+      "package": {
+        "name": "jquery.terminal",
+        "scope": "unscoped",
+        "version": "1.5.3",
+        "description": "jQuery Terminal Emulator is a plugin for creating command line interpreters in your applications.",
+        "keywords": [
+          "terminal",
+          "emulator",
+          "prompt",
+          "console",
+          "keyboard",
+          "type",
+          "rpc",
+          "input",
+          "ui"
+        ],
+        "date": "2017-08-01T13:32:34.461Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/jquery.terminal",
+          "homepage": "http://terminal.jcubic.pl",
+          "repository": "https://github.com/jcubic/jquery.terminal",
+          "bugs": "https://github.com/jcubic/jquery.terminal/issues"
+        },
+        "author": {
+          "name": "Jakub Jankiewicz",
+          "email": "jcubic@onet.pl",
+          "url": "http://jcubic.pl/me",
+          "username": "jcubic"
+        },
+        "publisher": {
+          "username": "jcubic",
+          "email": "jcubic@onet.pl"
+        },
+        "maintainers": [
+          {
+            "username": "jcubic",
+            "email": "jcubic@onet.pl"
+          }
+        ]
+      },
+      "score": {
+        "final": 0.742960604055266,
+        "detail": {
+          "quality": 0.9956925666616613,
+          "popularity": 0.2693782618988869,
+          "maintenance": 0.9999155496918779
+        }
+      },
+      "searchScore": 0.01284686
+    },
+    {
+      "package": {
+        "name": "fullcalendar",
+        "scope": "unscoped",
+        "version": "3.4.0",
+        "description": "Full-sized drag & drop event calendar",
+        "keywords": [
+          "calendar",
+          "event",
+          "full-sized",
+          "jquery-plugin"
+        ],
+        "date": "2017-04-27T15:57:35.992Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/fullcalendar",
+          "homepage": "https://fullcalendar.io/",
+          "repository": "https://github.com/fullcalendar/fullcalendar",
+          "bugs": "https://fullcalendar.io/wiki/Reporting-Bugs/"
+        },
+        "author": {
+          "name": "Adam Shaw",
+          "email": "arshaw@arshaw.com",
+          "url": "http://arshaw.com/",
+          "username": "arshaw"
+        },
+        "publisher": {
+          "username": "arshaw",
+          "email": "arshaw@arshaw.com"
+        },
+        "maintainers": [
+          {
+            "username": "arshaw",
+            "email": "arshaw@arshaw.com"
+          }
+        ]
+      },
+      "score": {
+        "final": 0.7806795177126551,
+        "detail": {
+          "quality": 0.9775762414059391,
+          "popularity": 0.42494845788796126,
+          "maintenance": 0.9676419572288197
+        }
+      },
+      "searchScore": 0.012400483
+    },
+    {
+      "package": {
+        "name": "jquery-mask-plugin",
+        "scope": "unscoped",
+        "version": "1.14.11",
+        "description": "A jQuery Plugin to make masks on form fields and html elements.",
+        "keywords": [
+          "mask",
+          "masks",
+          "form",
+          "input",
+          "jquery-plugin"
+        ],
+        "date": "2017-05-30T20:58:42.138Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/jquery-mask-plugin",
+          "homepage": "http://igorescobar.github.io/jQuery-Mask-Plugin/",
+          "repository": "https://github.com/igorescobar/jQuery-Mask-Plugin",
+          "bugs": "https://github.com/igorescobar/jQuery-Mask-Plugin/issues"
+        },
+        "author": {
+          "name": "Igor Escobar",
+          "email": "blog@igorescobar.com",
+          "username": "igorescobar"
+        },
+        "publisher": {
+          "username": "igorescobar",
+          "email": "blog@igorescobar.com"
+        },
+        "maintainers": [
+          {
+            "username": "igorescobar",
+            "email": "blog@igorescobar.com"
+          }
+        ]
+      },
+      "score": {
+        "final": 0.7397863264897767,
+        "detail": {
+          "quality": 0.9206207800009499,
+          "popularity": 0.3280134980093918,
+          "maintenance": 0.9965581948177276
+        }
+      },
+      "searchScore": 0.011783261
+    },
+    {
+      "package": {
+        "name": "jquery-mockjax",
+        "scope": "unscoped",
+        "version": "2.2.2",
+        "description": "The jQuery Mockjax Plugin provides a simple and extremely flexible interface for mocking or simulating ajax requests and responses.",
+        "keywords": [
+          "ajax",
+          "mock",
+          "unit",
+          "testing",
+          "jquery-plugin",
+          "ecosystem:jquery"
+        ],
+        "date": "2017-06-19T16:37:24.447Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/jquery-mockjax",
+          "homepage": "https://github.com/jakerella/jquery-mockjax",
+          "repository": "https://github.com/jakerella/jquery-mockjax",
+          "bugs": "http://github.com/jakerella/jquery-mockjax/issues"
+        },
+        "author": {
+          "name": "Jonathan Sharp",
+          "url": "http://jdsharp.com"
+        },
+        "publisher": {
+          "username": "jakerella",
+          "email": "jordan@jordankasper.com"
+        },
+        "maintainers": [
+          {
+            "username": "dirkbonhomme",
+            "email": "dirk@bytelogic.be"
+          },
+          {
+            "username": "appendto",
+            "email": "github@appendto.com"
+          },
+          {
+            "username": "jakerella",
+            "email": "jordan@jordankasper.com"
+          }
+        ]
+      },
+      "score": {
+        "final": 0.7268069491095402,
+        "detail": {
+          "quality": 0.894505255765707,
+          "popularity": 0.31005560960632406,
+          "maintenance": 0.9998168829074707
+        }
+      },
+      "searchScore": 0.010691673
+    },
+    {
+      "package": {
+        "name": "qunitjs",
+        "scope": "unscoped",
+        "version": "2.4.0",
+        "description": "An easy-to-use JavaScript Unit Testing framework.",
+        "keywords": [
+          "testing",
+          "unit",
+          "jquery"
+        ],
+        "date": "2017-07-08T15:24:34.865Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/qunitjs",
+          "homepage": "https://qunitjs.com",
+          "repository": "https://github.com/qunitjs/qunit",
+          "bugs": "https://github.com/qunitjs/qunit/issues"
+        },
+        "author": {
+          "name": "jQuery Foundation and other contributors",
+          "url": "https://github.com/qunitjs/qunit/blob/2.4.0/AUTHORS.txt"
+        },
+        "publisher": {
+          "username": "trentmwillis",
+          "email": "trentmwillis@gmail.com"
+        },
+        "maintainers": [
+          {
+            "username": "gibson042",
+            "email": "richard.gibson@gmail.com"
+          },
+          {
+            "username": "jzaefferer",
+            "email": "joern.zaefferer@gmail.com"
+          },
+          {
+            "username": "leobalter",
+            "email": "leonardo.balter@gmail.com"
+          },
+          {
+            "username": "trentmwillis",
+            "email": "trentmwillis@gmail.com"
+          }
+        ]
+      },
+      "score": {
+        "final": 0.7476804388867617,
+        "detail": {
+          "quality": 0.9401902640957575,
+          "popularity": 0.44462311455848025,
+          "maintenance": 0.8857293416073325
+        }
+      },
+      "searchScore": 0.0097918
+    },
+    {
+      "package": {
+        "name": "jquery.payment",
+        "scope": "unscoped",
+        "version": "3.0.0",
+        "description": "A general purpose library for building credit card forms, validating inputs and formatting numbers.",
+        "keywords": [
+          "payment",
+          "cc",
+          "card"
+        ],
+        "date": "2016-10-17T16:23:30.777Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/jquery.payment",
+          "homepage": "https://github.com/stripe/jquery.payment#readme",
+          "repository": "https://github.com/stripe/jquery.payment",
+          "bugs": "https://github.com/stripe/jquery.payment/issues"
+        },
+        "author": {
+          "name": "Stripe",
+          "url": "https://www.stripe.com"
+        },
+        "publisher": {
+          "username": "jenanwise",
+          "email": "jenan@jenanwise.com"
+        },
+        "maintainers": [
+          {
+            "username": "stripejs",
+            "email": "frontend-contact+npm@stripe.com"
+          },
+          {
+            "username": "jenanwise",
+            "email": "jenan@jenanwise.com"
+          },
+          {
+            "username": "maccman",
+            "email": "maccman@gmail.com"
+          },
+          {
+            "username": "jamesreggio",
+            "email": "james.reggio@gmail.com"
+          },
+          {
+            "username": "elliotf",
+            "email": "efoster@firetaco.com"
+          }
+        ]
+      },
+      "score": {
+        "final": 0.7204780411019088,
+        "detail": {
+          "quality": 0.866287728492966,
+          "popularity": 0.31615946724686955,
+          "maintenance": 0.9998168829074707
+        }
+      },
+      "searchScore": 0.009610941
+    },
+    {
+      "package": {
+        "name": "ua-parser-js",
+        "scope": "unscoped",
+        "version": "0.7.14",
+        "description": "Lightweight JavaScript-based user-agent string parser",
+        "keywords": [
+          "user-agent",
+          "parser",
+          "browser",
+          "engine",
+          "os",
+          "device",
+          "cpu",
+          "jquery-plugin",
+          "ecosystem:jquery"
+        ],
+        "date": "2017-07-19T12:47:34.873Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/ua-parser-js",
+          "homepage": "http://github.com/faisalman/ua-parser-js",
+          "repository": "https://github.com/faisalman/ua-parser-js",
+          "bugs": "https://github.com/faisalman/ua-parser-js/issues"
+        },
+        "author": {
+          "name": "Faisal Salman",
+          "email": "f@faisalman.com",
+          "url": "http://faisalman.com"
+        },
+        "publisher": {
+          "username": "faisalman",
+          "email": "fyzlman@gmail.com"
+        },
+        "maintainers": [
+          {
+            "username": "faisalman",
+            "email": "fyzlman@gmail.com"
+          }
+        ]
+      },
+      "flags": {
+        "unstable": true
+      },
+      "score": {
+        "final": 0.7078775758277049,
+        "detail": {
+          "quality": 0.8393463662697833,
+          "popularity": 0.6366435888916212,
+          "maintenance": 0.66642402809915
+        }
+      },
+      "searchScore": 0.006163489
+    },
+    {
+      "package": {
+        "name": "jquery.fancytree",
+        "scope": "unscoped",
+        "version": "2.23.0",
+        "description": "jQuery tree view / tree grid plugin with support for keyboard, inline editing, filtering, checkboxes, drag'n'drop, and lazy loading",
+        "keywords": [
+          "ajax",
+          "ecosystem:jquery",
+          "jquery-plugin",
+          "lazy",
+          "table",
+          "tabletree",
+          "tree",
+          "treegrid"
+        ],
+        "date": "2017-05-27T20:10:37.193Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/jquery.fancytree",
+          "homepage": "https://github.com/mar10/fancytree",
+          "repository": "https://github.com/mar10/fancytree",
+          "bugs": "https://github.com/mar10/fancytree/issues"
+        },
+        "author": {
+          "name": "Martin Wendt",
+          "url": "http://careers.stackoverflow.com/martin-wendt"
+        },
+        "publisher": {
+          "username": "mar10",
+          "email": "npm@wwwendt.de"
+        },
+        "maintainers": [
+          {
+            "username": "mar10",
+            "email": "npm@wwwendt.de"
+          }
+        ]
+      },
+      "score": {
+        "final": 0.7131393509292847,
+        "detail": {
+          "quality": 0.9630752218185753,
+          "popularity": 0.22886738529416709,
+          "maintenance": 0.9831805700878677
+        }
+      },
+      "searchScore": 0.0061220517
+    },
+    {
+      "package": {
+        "name": "conventional-changelog-jquery",
+        "scope": "unscoped",
+        "version": "1.2.0",
+        "description": "conventional-changelog jquery preset",
+        "keywords": [
+          "conventional-changelog",
+          "jquery",
+          "preset"
+        ],
+        "date": "2017-07-17T23:30:24.804Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/conventional-changelog-jquery",
+          "homepage": "https://github.com/conventional-changelog/conventional-changelog-jquery#readme",
+          "repository": "https://github.com/conventional-changelog/conventional-changelog-jquery",
+          "bugs": "https://github.com/conventional-changelog/conventional-changelog-jquery/issues"
+        },
+        "author": {
+          "name": "Steve Mao"
+        },
+        "publisher": {
+          "username": "stevemao",
+          "email": "maochenyan@gmail.com"
+        },
+        "maintainers": [
+          {
+            "username": "tapppi",
+            "email": "moilanen.tapani@gmail.com"
+          },
+          {
+            "username": "bcoe",
+            "email": "ben@npmjs.com"
+          },
+          {
+            "username": "stevemao",
+            "email": "maochenyan@gmail.com"
+          }
+        ]
+      },
+      "score": {
+        "final": 0.7236203060084521,
+        "detail": {
+          "quality": 0.9803123075581804,
+          "popularity": 0.22723610477365777,
+          "maintenance": 0.9999827916291937
+        }
+      },
+      "searchScore": 0.0060106427
+    },
+    {
+      "package": {
+        "name": "@mizchi/jquery-ui",
+        "scope": "mizchi",
+        "version": "1.11.4",
+        "description": "A curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library.",
+        "date": "2016-06-09T12:18:27.514Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/%40mizchi%2Fjquery-ui",
+          "homepage": "http://jqueryui.com",
+          "repository": "https://github.com/jquery/jquery-ui",
+          "bugs": "http://bugs.jqueryui.com/"
+        },
+        "author": {
+          "name": "jQuery Foundation and other contributors",
+          "url": "https://github.com/jquery/jquery-ui/blob/1-11-stable/AUTHORS.txt"
+        },
+        "publisher": {
+          "username": "mizchi",
+          "email": "miz404@gmail.com"
+        },
+        "maintainers": [
+          {
+            "username": "mizchi",
+            "email": "miz404@gmail.com"
+          }
+        ]
+      },
+      "score": {
+        "final": 0.7124746936108648,
+        "detail": {
+          "quality": 0.9173176899229208,
+          "popularity": 0.2496099287732762,
+          "maintenance": 0.999759747323834
+        }
+      },
+      "searchScore": 0.005772834
+    },
+    {
+      "package": {
+        "name": "jquery.waitforimages",
+        "scope": "unscoped",
+        "version": "2.2.0",
+        "description": "Copyright (c) 2011-2016 Alexander Dickson [@alexdickson](http://twitter.com/alexdickson)",
+        "date": "2016-06-05T20:27:26.419Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/jquery.waitforimages",
+          "homepage": "https://github.com/alexanderdickson/waitForImages",
+          "repository": "https://github.com/alexanderdickson/waitForImages",
+          "bugs": "https://github.com/alexanderdickson/waitForImages/issues"
+        },
+        "author": {
+          "name": "Alex Dickson",
+          "email": "alex@alexanderdickson.com",
+          "url": "http://alexanderdickson.com",
+          "username": "alexdickson"
+        },
+        "publisher": {
+          "username": "alexdickson",
+          "email": "alex@alexanderdickson.com"
+        },
+        "maintainers": [
+          {
+            "username": "alexdickson",
+            "email": "alex@alexanderdickson.com"
+          }
+        ]
+      },
+      "score": {
+        "final": 0.6965421155230678,
+        "detail": {
+          "quality": 0.9233253183869776,
+          "popularity": 0.1988817456838849,
+          "maintenance": 0.9998168829074707
+        }
+      },
+      "searchScore": 0.003840912
+    },
+    {
+      "package": {
+        "name": "jquery.facedetection",
+        "scope": "unscoped",
+        "version": "2.0.2",
+        "description": "A jQuery plugin to detect faces on images, videos and canvases.",
+        "keywords": [
+          "jquery",
+          "face",
+          "detection",
+          "image",
+          "picture",
+          "video",
+          "canvas",
+          "jquery-plugin"
+        ],
+        "date": "2016-11-05T16:49:20.628Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/jquery.facedetection",
+          "homepage": "http://facedetection.jaysalvat.com",
+          "repository": "https://github.com/jaysalvat/jquery.facedetection",
+          "bugs": "https://github.com/jaysalvat/jquery.facedetection/issues"
+        },
+        "author": {
+          "name": "Jay Salvat",
+          "url": "http://jaysalvat.com"
+        },
+        "publisher": {
+          "username": "jaysalvat",
+          "email": "jay.salvat@gmail.com"
+        },
+        "maintainers": [
+          {
+            "username": "jaysalvat",
+            "email": "jay.salvat@gmail.com"
+          }
+        ]
+      },
+      "score": {
+        "final": 0.6968174271043859,
+        "detail": {
+          "quality": 0.9393746267172788,
+          "popularity": 0.18596893578817272,
+          "maintenance": 0.999759747323834
+        }
+      },
+      "searchScore": 0.003684507
+    },
+    {
+      "package": {
+        "name": "iframe-resizer",
+        "scope": "unscoped",
+        "version": "3.5.14",
+        "description": "Keep same and cross domain iFrames sized to their content with support for window/content resizing, and multiple iFrames.",
+        "keywords": [
+          "CrossDomain",
+          "Cross-Domain",
+          "iFrame",
+          "Resizing",
+          "Resizer",
+          "postMessage",
+          "autoheight",
+          "auto-height",
+          "iframe-auto-height",
+          "height-iframe",
+          "heightiframe",
+          "width",
+          "mutationObserver",
+          "RWD",
+          "responsiveiframes",
+          "responsive-iframes",
+          "jquery-plugin"
+        ],
+        "date": "2017-03-30T09:19:41.117Z",
+        "links": {
+          "npm": "https://www.npmjs.com/package/iframe-resizer",
+          "homepage": "https://github.com/davidjbradshaw/iframe-resizer",
+          "repository": "https://github.com/davidjbradshaw/iframe-resizer",
+          "bugs": "https://github.com/davidjbradshaw/iframe-resizer/issues"
+        },
+        "publisher": {
+          "username": "davidjbradshaw",
+          "email": "dave@bradshaw.net"
+        },
+        "maintainers": [
+          {
+            "username": "davidjbradshaw",
+            "email": "dave@bradshaw.net"
+          }
+        ]
+      },
+      "score": {
+        "final": 0.7629349216947949,
+        "detail": {
+          "quality": 0.9599860800091669,
+          "popularity": 0.35809117881687036,
+          "maintenance": 0.9988776717318293
+        }
+      },
+      "searchScore": 0.0035600406
+    }
+  ],
+  "total": 6116,
+  "time": "Wed Aug 09 2017 11:12:54 GMT+0000 (UTC)"
+}

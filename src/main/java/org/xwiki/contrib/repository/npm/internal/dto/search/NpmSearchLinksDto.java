@@ -17,43 +17,55 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.xwiki.contrib.repository.npm.internal.version;
+package org.xwiki.contrib.repository.npm.internal.dto.search;
 
-import org.xwiki.extension.version.Version;
-import org.xwiki.extension.version.VersionRange;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import com.github.yuchi.semver.Range;
-
-public class NpmVersionRange implements VersionRange
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class NpmSearchLinksDto
 {
-    private final Range range;
+    private String npm;
+    private String homepage;
+    private String repository;
+    private String bugs;
 
-    private final String raweVersionRange;
-
-    public NpmVersionRange(String rawVersionRange)
+    public String getNpm()
     {
-        this.raweVersionRange = rawVersionRange;
-        this.range = new Range(rawVersionRange, false);
+        return npm;
     }
 
-    @Override public boolean containsVersion(Version version)
+    public void setNpm(String npm)
     {
-        return range.test(new com.github.yuchi.semver.Version(version.getValue()));
+        this.npm = npm;
     }
 
-    @Override public String getValue()
+    public String getHomepage()
     {
-        return raweVersionRange;
+        return homepage;
     }
 
-    @Override public boolean isCompatible(VersionRange versionRange)
+    public void setHomepage(String homepage)
     {
-        return true;
-        // TODO: 08.08.2017 to implement in future
+        this.homepage = homepage;
     }
 
-    @Override public String toString()
+    public String getRepository()
     {
-        return raweVersionRange;
+        return repository;
+    }
+
+    public void setRepository(String repository)
+    {
+        this.repository = repository;
+    }
+
+    public String getBugs()
+    {
+        return bugs;
+    }
+
+    public void setBugs(String bugs)
+    {
+        this.bugs = bugs;
     }
 }

@@ -17,43 +17,46 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.xwiki.contrib.repository.npm.internal.version;
+package org.xwiki.contrib.repository.npm.internal.dto.search;
 
-import org.xwiki.extension.version.Version;
-import org.xwiki.extension.version.VersionRange;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import com.github.yuchi.semver.Range;
-
-public class NpmVersionRange implements VersionRange
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class NpmSearchResultDto
 {
-    private final Range range;
+    @JsonProperty("package")
+    private NpmSearchPackageDto packageDto;
+    private NpmSearchScoreDto score;
+    private double searchScore;
 
-    private final String raweVersionRange;
-
-    public NpmVersionRange(String rawVersionRange)
+    public NpmSearchPackageDto getPackageDto()
     {
-        this.raweVersionRange = rawVersionRange;
-        this.range = new Range(rawVersionRange, false);
+        return packageDto;
     }
 
-    @Override public boolean containsVersion(Version version)
+    public void setPackageDto(NpmSearchPackageDto packageDto)
     {
-        return range.test(new com.github.yuchi.semver.Version(version.getValue()));
+        this.packageDto = packageDto;
     }
 
-    @Override public String getValue()
+    public NpmSearchScoreDto getScore()
     {
-        return raweVersionRange;
+        return score;
     }
 
-    @Override public boolean isCompatible(VersionRange versionRange)
+    public void setScore(NpmSearchScoreDto score)
     {
-        return true;
-        // TODO: 08.08.2017 to implement in future
+        this.score = score;
     }
 
-    @Override public String toString()
+    public double getSearchScore()
     {
-        return raweVersionRange;
+        return searchScore;
+    }
+
+    public void setSearchScore(double searchScore)
+    {
+        this.searchScore = searchScore;
     }
 }

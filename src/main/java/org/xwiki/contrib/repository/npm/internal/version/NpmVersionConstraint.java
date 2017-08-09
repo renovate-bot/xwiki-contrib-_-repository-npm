@@ -34,8 +34,6 @@ public class NpmVersionConstraint implements VersionConstraint
 
     private final NpmVersionRange versionRange;
 
-    private Version version;
-
     public NpmVersionConstraint(String rawVersionConstraint)
     {
         this.rawVersionConstraint = rawVersionConstraint;
@@ -49,7 +47,7 @@ public class NpmVersionConstraint implements VersionConstraint
 
     @Override public Version getVersion()
     {
-        return version;
+        return null;
     }
 
     @Override public String getValue()

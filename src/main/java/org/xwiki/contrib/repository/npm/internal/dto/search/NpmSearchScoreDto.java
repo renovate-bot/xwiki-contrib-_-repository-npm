@@ -17,15 +17,33 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-package org.xwiki.contrib.repository.npm.internal;
+package org.xwiki.contrib.repository.npm.internal.dto.search;
 
-public interface NpmParameters
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class NpmSearchScoreDto
 {
-    String API_URL = "https://registry.npmjs.org/";
-    String PACKAGE_VERSION_INFO_JSON = "http://registry.npmjs.org/{package_name}/{version}";
-    String PACKAGE_INFO_JSON = "http://registry.npmjs.org/{package_name}";
-    String SEARCH_JSON = "http://registry.npmjs.org/-/v1/search?text={search_query}&size={size}&from={from}";
+    @JsonProperty("final")
+    private double finalScore;
+    private NpmSearchDetailScoreDto detail;
 
-    String DEFAULT_GROUPID = "org.webjar";
-    String PACKAGE_TYPE = "webjar";
+    public double getFinalScore()
+    {
+        return finalScore;
+    }
+
+    public void setFinalScore(double finalScore)
+    {
+        this.finalScore = finalScore;
+    }
+
+    public NpmSearchDetailScoreDto getDetail()
+    {
+        return detail;
+    }
+
+    public void setDetail(NpmSearchDetailScoreDto detail)
+    {
+        this.detail = detail;
+    }
 }
