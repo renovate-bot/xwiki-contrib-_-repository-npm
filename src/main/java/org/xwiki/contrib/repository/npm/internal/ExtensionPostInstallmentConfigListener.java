@@ -58,9 +58,6 @@ public class ExtensionPostInstallmentConfigListener extends AbstractEventListene
     @Inject
     private Logger logger;
 
-    /**
-     *
-     */
     public ExtensionPostInstallmentConfigListener()
     {
         super("NpmRepositoryExtensionPostInstallmentConfigListener", Collections.emptyList());

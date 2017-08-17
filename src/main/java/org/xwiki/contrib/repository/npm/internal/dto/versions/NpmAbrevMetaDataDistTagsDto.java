@@ -21,9 +21,6 @@ package org.xwiki.contrib.repository.npm.internal.dto.versions;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/**
- * Created by Krzysztof on 08.08.2017.
- */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class NpmAbrevMetaDataDistTagsDto
 {
