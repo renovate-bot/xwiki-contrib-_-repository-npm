@@ -28,14 +28,14 @@
         <version>8.4-8</version>
     </parent>
     <artifactId>repository-npm</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.1</version>
     <name>Extension Repository Connector - NPM</name>
     <description>Enable importing npm packages from the npm registry</description>
     <scm>
         <connection>scm:git:git://github.com/xwiki-contrib/repository-npm.git</connection>
         <developerConnection>scm:git:git@github.com:xwiki-contrib/repository-npm.git</developerConnection>
         <url>https://github.com/xwiki-contrib/repository-npm/tree/master</url>
-        <tag>HEAD</tag>
+        <tag>repository-npm-1.1</tag>
     </scm>
     <developers>
         <developer>
