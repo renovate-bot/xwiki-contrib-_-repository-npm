@@ -24,7 +24,7 @@ public interface NpmParameters
     String API_URL = "https://registry.npmjs.org/";
     String PACKAGE_VERSION_INFO_JSON = "http://registry.npmjs.org/{package_name}/{version}";
     String PACKAGE_INFO_JSON = "http://registry.npmjs.org/{package_name}";
-    String SEARCH_JSON = "http://registry.npmjs.org/-/v1/search?text={search_query}&size={size}&from={from}";
+    String SEARCH_JSON = "http://registry.npmjs.org/-/v1/search?text={search_query}+keywords:-documentation,-test&size={size}&from={from}";
 
     String DEFAULT_GROUPID = "org.webjar";
     String PACKAGE_TYPE = "webjar";
