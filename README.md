@@ -3,6 +3,7 @@ Extension extending Extension Module with possibility to import extension from B
 
 * Project Lead: [Krzysztof Płachno](http://www.xwiki.org/xwiki/bin/view/XWiki/cristof_p)
 * Project Mentor: [Thomas Mortagne](http://www.xwiki.org/xwiki/bin/view/XWiki/ThomasMortagne)
+* [Documentation and Download](http://extensions.xwiki.org/xwiki/bin/view/Extension/Extension%20Repository%20Connector%20-%20NPM/) 
 * [Design page](http://design.xwiki.org/xwiki/bin/view/Proposal/Moreextensionrepositories)
 * Issue Tracker: https://jira.xwiki.org/browse/NPMREP
 * Communication: [Mailing List](http://dev.xwiki.org/xwiki/bin/view/Community/MailingLists), [IRC]( http://dev.xwiki.org/xwiki/bin/view/Community/IRC)
