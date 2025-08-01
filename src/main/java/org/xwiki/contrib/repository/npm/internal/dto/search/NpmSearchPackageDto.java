@@ -19,7 +19,6 @@
  */
 package org.xwiki.contrib.repository.npm.internal.dto.search;
 
-import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

@@ -2,7 +2,6 @@ package org.xwiki.contrib.repository.npm.internal.dto.search;
 
 import org.junit.Test;
 import org.xwiki.contrib.repository.npm.internal.TestUtils;
-import org.xwiki.contrib.repository.npm.internal.dto.packageinfo.NpmPackageInfoJSONDto;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

@@ -50,7 +50,6 @@ import org.xwiki.extension.ExtensionId;
 import org.xwiki.extension.ExtensionLicenseManager;
 import org.xwiki.extension.ExtensionNotFoundException;
 import org.xwiki.extension.ResolveException;
-import org.xwiki.extension.internal.ExtensionFactory;
 import org.xwiki.extension.repository.AbstractExtensionRepository;
 import org.xwiki.extension.repository.ExtensionRepository;
 import org.xwiki.extension.repository.ExtensionRepositoryDescriptor;

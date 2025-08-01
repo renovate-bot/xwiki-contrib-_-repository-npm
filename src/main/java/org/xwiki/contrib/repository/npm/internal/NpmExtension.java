@@ -25,7 +25,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.xwiki.contrib.repository.npm.internal.dto.packageinfo.NpmDependencyDto;
 import org.xwiki.contrib.repository.npm.internal.dto.packageinfo.NpmPackageInfoJSONDto;
 import org.xwiki.contrib.repository.npm.internal.dto.search.NpmSearchPackageDto;
-import org.xwiki.contrib.repository.npm.internal.dto.search.NpmSearchResultDto;
 import org.xwiki.contrib.repository.npm.internal.version.NpmVersionConstraint;
 import org.xwiki.environment.Environment;
 import org.xwiki.extension.AbstractRemoteExtension;

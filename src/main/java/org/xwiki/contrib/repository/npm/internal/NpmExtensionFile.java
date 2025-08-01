@@ -28,7 +28,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.reflect.FieldUtils;
 import org.apache.http.HttpException;
 import org.apache.http.client.protocol.HttpClientContext;
 import org.rauschig.jarchivelib.ArchiveFormat;
